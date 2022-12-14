@@ -1,0 +1,36 @@
+<div>
+    <form [formGroup]="reactiveFormGroup" (ngSubmit)="onSubmit()">
+        <input type="text" formControlName="txt_name" [(ngModel)]="txt_name" class="form-control" placeholder="name" />
+        <input type="text" formControlName="txt_details" [(ngModel)]="txt_details" class="form-control"
+            placeholder="details" />
+
+
+        <div>
+            <button class="btn btn-primary ml-1">
+                save
+            </button>
+        </div>
+    </form>
+
+</div>
+
+<div>
+    <table>
+        <thead>
+            <td>Index</td>
+            <td>Name</td>
+            <td>Details</td>
+            <td> delete</td>
+
+        </thead>
+        <tr *ngFor="let i of todoList">
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.details}}</td>
+            <td>
+                <button (click)="deleteItem(i.id)"> delete
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
